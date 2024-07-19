@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
+import Dice from "react-dice-roll";
 
 const ControlBarContainer = styled.div`
     display: flex;
@@ -7,6 +8,7 @@ const ControlBarContainer = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
+    gap: 100px;
 `;
 
 const Button = styled.button`
@@ -15,10 +17,10 @@ const Button = styled.button`
     margin: 0.5rem;
 `;
 
-const ControlBar = ({ onRollDice }: { onRollDice: () => void }) => {
+const ControlBar = ({ onRollDice }: { onRollDice: (value: 1 | 2 | 3 | 4 | 5 | 6) => void }) => {
     return (
         <ControlBarContainer>
-            <Button onClick={onRollDice}>주사위 던지기</Button>
+            <Dice size={100} onRoll={(value) => onRollDice(value)} />
             <Link href="/">
                 <Button>홈화면으로 가기</Button>
             </Link>

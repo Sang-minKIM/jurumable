@@ -1,13 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { css } from "@emotion/react";
+
 import styled from "@emotion/styled";
 import Board from "../components/Board";
 import ControlBar from "../components/ControlBar";
-import Dice from "../components/Dice";
+
 import Modal from "../components/Modal";
 import Toast from "../components/Toast";
+import Dice from "react-dice-roll";
+
+type diceType = 1 | 2 | 3 | 4 | 5 | 6;
 
 const GameContainer = styled.div`
     display: flex;
@@ -25,7 +28,7 @@ const ControlBarContainer = styled.div`
 export default function Game() {
     const [currentPosition, setCurrentPosition] = useState(0);
     const [showDice, setShowDice] = useState(false);
-    const [diceValue, setDiceValue] = useState(0);
+    const [diceValue, setDiceValue] = useState<diceType>(1);
     const [showToast, setShowToast] = useState(false);
     const [storedDrinks, setStoredDrinks] = useState(0);
     const [toastMessage, setToastMessage] = useState("");
@@ -42,14 +45,16 @@ export default function Game() {
         localStorage.setItem("storedDrinks", storedDrinks.toString());
     }, [currentPosition, storedDrinks]);
 
-    const rollDice = () => {
-        setShowDice(true);
-        const newValue = Math.floor(Math.random() * 6) + 1;
-        setDiceValue(newValue);
+    const rollDice = (value: diceType) => {
+        setTimeout(() => {
+            setShowDice(true);
+        }, 300);
+
+        setDiceValue(value);
         setTimeout(() => {
             setShowDice(false);
-            movePlayer(newValue);
-        }, 2000);
+            movePlayer(value);
+        }, 1300);
     };
     const moveTo = (steps: number) => {
         setCurrentPosition(steps);
@@ -78,8 +83,8 @@ export default function Game() {
                 <ControlBar onRollDice={rollDice} />
             </ControlBarContainer>
             {showDice && (
-                <Modal onClose={() => setShowDice(false)}>
-                    <Dice value={diceValue} />
+                <Modal onClose={() => null}>
+                    <Dice disabled={true} defaultValue={diceValue} cheatValue={diceValue} />
                 </Modal>
             )}
             {showToast && <Toast message={toastMessage} onClose={handleToastClose} />}

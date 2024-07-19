@@ -614,6 +614,11 @@ postcss@8.4.31:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
+react-dice-roll@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-dice-roll/-/react-dice-roll-1.2.2.tgz#df77249133f12f4cce2512d52b5b6354ed15c236"
+  integrity sha512-QNG+RVs3CymhTkNLwfDdJ93kL4vWO+luHkQAhuNxnus9jOFUZY54AJhlDa4y576S20oEuW47nO7HvEDCtST9wQ==
+
 react-dom@^18.3.1:
   version "18.3.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.3.1.tgz#c2265d79511b57d479b3dd3fdfa51536494c5cb4"
