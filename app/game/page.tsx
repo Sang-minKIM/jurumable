@@ -11,7 +11,7 @@ import Toast from "../components/Toast";
 
 const GameContainer = styled.div`
     display: flex;
-    height: 100vh;
+    height: 100dvh;
 `;
 
 const BoardContainer = styled.div`
