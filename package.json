@@ -1,0 +1,29 @@
+{
+    "name": "nextjs14",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "type-check": "tsc"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@emotion/babel-plugin": "^11.11.0",
+        "@emotion/react": "^11.11.4",
+        "@emotion/styled": "^11.11.5",
+        "next": "^14.2.5",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.11",
+        "@types/react": "18.3.3",
+        "typescript": "^5.5.3"
+    }
+}
